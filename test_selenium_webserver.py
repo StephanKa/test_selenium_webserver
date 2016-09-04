@@ -20,12 +20,6 @@ import random
 class WebserverTemplate(unittest.TestCase):
     ''' Template class which has all the test inside, all needed browser are derived from this template class '''
     
-    @classmethod  
-    def setUpClass(self):
-        self.address = 'http://127.0.0.1:8081'
-        self.webdriver_service = service.Service('operadriver.exe')
-        self.webdriver_service.start()
-    
     # we skip this because we don't want to start the template class test which doesn't make sense.
     @unittest.skip('Template will not start any test')
     def setUp(self):
@@ -77,6 +71,12 @@ class WebserverFirefox(WebserverTemplate):
         time.sleep(1)
         
 class WebserverOpera(WebserverTemplate):
+    
+    @classmethod  
+    def setUpClass(self):
+        self.address = 'http://127.0.0.1:8081'
+        self.webdriver_service = service.Service('operadriver.exe')
+        self.webdriver_service.start()
     
     def setUp(self):
         self.browser = webdriver.Remote(self.webdriver_service.service_url, webdriver.DesiredCapabilities.OPERA)
