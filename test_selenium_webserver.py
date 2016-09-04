@@ -8,7 +8,7 @@
 # command line call:    python test_selenium_webserver.py <Test_Case_Name>[.<Test_Method>] [<Test_Case_Name>.<Test_Method>]...
 # Test_Case_Name:       class name
 # Test_method:          optional argument
-# Example:              python test_selenium_webserver.py Webserver.test_start_stop_click
+# Example:              python test_selenium_webserver.py Webserver.test_refresh_news
 
 import time
 import unittest
